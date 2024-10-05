@@ -1,0 +1,17 @@
+*.o
+*.lo
+*.la
+*.1
+.libs
+.deps
+*.log
+Makefile
+config.h
+config.status
+docs/Makefile
+esd-config
+esddsp
+esound.pc
+esound.spec
+libtool
+stamp-h1

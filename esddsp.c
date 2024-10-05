@@ -688,12 +688,12 @@ mmap (void  *start,  size_t length, int prot, int flags, int fd, off_t offset)
 }
 
 void *
-mmap64 (void  *start,  size_t length, int prot, int flags, int fd, off64_t offset)
+mmap64 (void  *start,  size_t length, int prot, int flags, int fd, off_t offset)
 {
-  static void *(*func) (void *, size_t, int, int, int, off64_t) = NULL;
+  static void *(*func) (void *, size_t, int, int, int, off_t) = NULL;
   
   if (!func)
-    func = (void * (*) (void *, size_t, int, int, int, off64_t)) dlsym (REAL_LIBC, "mmap64");
+    func = (void * (*) (void *, size_t, int, int, int, off_t)) dlsym (REAL_LIBC, "mmap64");
 
   if(fd != sndfd || sndfd == -1)
     return (*func)(start,length,prot,flags,fd,offset);
