@@ -1,7 +1,7 @@
 FROM alpine AS build
 RUN apk add alpine-sdk libtool alsa-lib-dev audiofile-dev linux-headers
 ADD . .
-RUN ./configure
+RUN ./configure --enable-debugging
 RUN make install
 
 FROM alpine

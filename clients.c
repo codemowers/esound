@@ -62,7 +62,7 @@ void dump_clients(void)
 #endif
      {
 	port = ntohs( clients->source.sin_port );
-	addr = ntohl( clients->source.sin_addr.s_addr );
+	uint32_t addr = ntohl( clients->source.sin_addr.s_addr );
 
 	printf( "(%02d) client from: %03u.%03u.%03u.%03u:%05d [%p]\n", 
 		clients->fd, (unsigned int) addr >> 24, 
@@ -176,7 +176,7 @@ int get_new_clients( int listen )
 	    if (esd_use_tcpip) {
 
 		port = ntohs( incoming.sin_port );
-		addr = ntohl( incoming.sin_addr.s_addr );
+		uint32_t addr = ntohl( incoming.sin_addr.s_addr );
 
 		printf( "(%02d) new client from: %03u.%03u.%03u.%03u:%05d\n", 
 			fd, (unsigned int) addr >> 24, 
